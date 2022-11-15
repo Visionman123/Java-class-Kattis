@@ -1,4 +1,4 @@
-package Frankfurt.Week3.Question_4;
+package Frankfurt.Exercise.Week3.Question_4;
 
 public class Cat extends Animal {
 
@@ -20,8 +20,8 @@ public class Cat extends Animal {
 
     // Indicates whether some other object is "equal to" this one.
     public boolean equals(Object obj) {
-        if (obj instanceof Animal) {
-            Animal info = (Cat) obj;
+        if (obj instanceof Cat) {
+            Cat info = (Cat) obj;
             return info.name == this.name && info.birth == this.birth;
         } else
             return false;

@@ -1,4 +1,4 @@
-package Frankfurt.Week3.Question_1;
+package Frankfurt.Exercise.Week3.Question_1;
 
 public class RectanglePlusDemo {
 

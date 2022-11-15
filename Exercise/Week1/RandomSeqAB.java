@@ -1,4 +1,4 @@
-package Frankfurt.Week1;
+package Frankfurt.Exercise.Week1;
 
 import java.util.*;
 
@@ -29,3 +29,4 @@ public class RandomSeqAB {
         sc.close();
     }
 }
+

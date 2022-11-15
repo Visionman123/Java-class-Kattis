@@ -1,4 +1,4 @@
-package Frankfurt.Week2.Question_2;
+package Frankfurt.Exercise.Week2.Question_2;
 
 public class Bicycle {
 

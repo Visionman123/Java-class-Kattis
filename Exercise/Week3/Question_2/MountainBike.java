@@ -1,4 +1,4 @@
-package Frankfurt.Week3.Question_2;
+package Frankfurt.Exercise.Week3.Question_2;
 
 public class MountainBike extends Bicycle {
     private String suspension;

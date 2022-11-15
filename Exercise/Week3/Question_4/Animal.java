@@ -1,4 +1,4 @@
-package Frankfurt.Week3.Question_4;
+package Frankfurt.Exercise.Week3.Question_4;
 
 public class Animal implements Cloneable {
 

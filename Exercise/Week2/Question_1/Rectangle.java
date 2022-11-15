@@ -1,4 +1,4 @@
-package Frankfurt.Week2.Question_1;
+package Frankfurt.Exercise.Week2.Question_1;
 
 public class Rectangle {
     public int width = 0;
