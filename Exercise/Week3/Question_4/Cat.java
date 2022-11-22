@@ -1,93 +1,125 @@
 package Frankfurt.Exercise.Week3.Question_4;
 
+import java.util.Objects;
+
 public class Cat extends Animal {
 
-    String name;
-    int birth;
-
-    public Cat() {
-        super();
+    Cat(String name, int age, String color) {
+        super(name, age); // Constructor of superclass
+        this.color = color;
     }
 
-    public Cat(String name, int birth) {
-        super();
+    Cat() {
     }
 
-    // Creates and returns a copy of this object.
+    String color; // We have to add to atributes to do clone and equalsmethod applicable
+
+    public static void testClassMethod() {
+        System.out.println("The static method in Cat");
+    }
+
+    public void testInstanceMethod() {
+        System.out.println("The instance method in Cat");
+    }
+
+    @Override
     public Object clone() throws CloneNotSupportedException {
-        return super.clone(); // return nearest element
+
+        Cat c = new Cat(this.name, this.age, this.color);
+        return c;
     }
 
-    // Indicates whether some other object is "equal to" this one.
-    public boolean equals(Object obj) {
-        if (obj instanceof Cat) {
-            Cat info = (Cat) obj;
-            return info.name == this.name && info.birth == this.birth;
-        } else
+    public String getClassName() {
+        return this.getClass().getSimpleName();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        // self check
+        if (this == o) // ten sam obiekt
+            return true;
+        // null check
+        if (o == null)
             return false;
+        // type check and cast
+        if (getClass() != o.getClass())
+            return false;
+
+        if (!super.equals(o))
+            return false;
+
+        Cat catexam = (Cat) o;
+
+        // "1".equals("1"); //comparison two object non-static object
+        // Objects.equals("1", "1"); //comparison two object static
+        return this.color.equals(catexam.color);
+
     }
 
-    // Returns a hash code value for the object.@overide
+    public String toString() {
+
+        return super.toString() + ", color:" + this.color;
+
+    }
+
+    @Override
     public int hashCode() {
-        return birth * 10; // hashcode
+        int result = 2;
+        result += 5 * age;
+
+        return result;
     }
 
-    // makesound
-    public static void makesound() {
-        System.out.println("*Meoww");
-    }
+    public static void main(String[] args) {
+        Cat myCat = new Cat();
+        Animal myAnimal = myCat;
+        Animal.testClassMethod();
+        myAnimal.testInstanceMethod();
+        Animal myAnimal2 = null;
 
-    public static void main(String[] args) throws CloneNotSupportedException {
-        Cat Cat1 = new Cat("Nam", 20);
-        Cat cat2 = new Cat("Ha", 19);
-
-        Animal Animal1 = Cat1;
-        Animal1.makesound();
-        Cat1.makesound();
-        System.out.println("--------------------");
-
-        // clone()
-        System.out.println("Clone");
-        Animal Animal1_copy = (Animal) Cat1.clone();
-        Animal Animal2_copy = (Cat) Cat1.clone();
-        Cat Cat_copy = (Cat) Cat1.clone();
-        Animal1_copy.makesound();
-        Animal2_copy.makesound();
-        Cat_copy.makesound();
-        System.out.println("--------------------");
-
-        // check equals()
-        // case1
-        System.out.println("Check Animal1 equal Cat1 ?");
-        if (Animal1.equals(Cat1)) {
-            System.out.println("Objects are equal");
-        } else {
-            System.out.println("Objects are not equal");
+        try {
+            myAnimal2 = (Animal) myAnimal.clone();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
         }
-        System.out.println();
-        // case2
-        System.out.println("Check Animal1 equal cat2 ?");
-        if (Animal1.equals(cat2)) {
-            System.out.println("Objects are equal");
-        } else {
-            System.out.println("Objects are not equal");
-        }
-        System.out.println("--------------------");
 
-        // Check class
-        Animal.printClassName(Animal1);
-        Cat.printClassName(cat2);
-        System.out.println("--------------------");
+        myAnimal2.equals(myAnimal);
+        myAnimal.getClass();
+        myAnimal.getClassname();
+        myAnimal.hashCode();
+        myAnimal.toString();
 
-        // hashCode()
-        System.out.println("Hashcode Rec3?");
-        System.out.println(cat2.hashCode());
-        System.out.println("--------------------");
-
-        // toString()
-        System.out.println("To String Rec4?");
-        System.out.println(cat2.toString());
-        System.out.println("--------------------");
-
+        // *********************Tests********************
+        /*
+         * Animal animalNew=new Animal("Zwierze", 3);
+         * Animal animal2=animalNew;
+         * Animal animalnull=null;
+         * Animal animal3=new Animal ("Zwierze", 3);
+         * 
+         * 
+         * System.out.println(animalNew.equals(animal2));
+         * System.out.println(animalNew.equals(animalnull));
+         * System.out.println(animal3.equals(animalNew));
+         * 
+         * Cat katze1=new Cat("Mika", 5, "braun");
+         * Cat katze10=katze1;
+         * Cat katze2=new Cat("Zik", 10, "white");
+         * Cat katze3=new Cat("Mika", 5, "braun");
+         * Cat zwierze=new Cat("Zwierze", 3, null);
+         * Cat katze4=null;
+         * 
+         * System.out.println(katze1.equals(katze10));
+         * System.out.println(katze2.equals(katze4));
+         * System.out.println(katze3.equals(katze1));
+         * System.out.println(katze2.equals(katze3));
+         * 
+         * System.out.println(zwierze.equals(animal3)); //rozne klasy dlatego -> if
+         * 
+         * System.out.println(katze1.toString());
+         * System.out.println(katze10.toString());
+         * System.out.println(katze2.toString());
+         * 
+         * System.out.println(animalNew);
+         */
     }
 }

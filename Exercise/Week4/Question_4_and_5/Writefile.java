@@ -1,4 +1,4 @@
-package Frankfurt.Exercise.Week4.Question_4;
+package Frankfurt.Exercise.Week4.Question_4_and_5;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,7 +18,7 @@ public class Writefile {
  
         // Defining the file name of the file
         Path fileName = Path.of(
-            "/Users/namng/Desktop/Java/Frankfurt/Exercise/Week4/Question_4/text_in.txt");
+            "/Users/namng/Desktop/Java/Frankfurt/Exercise/Week4/Question_4_and_5/text_in.txt");
  
         // Writing into the file
         Files.writeString(fileName, text);

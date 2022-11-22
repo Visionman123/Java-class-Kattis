@@ -4,18 +4,18 @@ public class MountainBike extends Bicycle {
     private String suspension;
 
     public MountainBike(
-               int startCadence,
-               int startSpeed,
-               int startGear,
-               String suspensionType){
+            int startCadence,
+            int startSpeed,
+            int startGear,
+            String suspensionType) {
         super(startCadence,
-              startSpeed,
-              startGear);
+                startSpeed,
+                startGear);
         this.setSuspension(suspensionType);
     }
 
-    public String getSuspension(){
-      return this.suspension;
+    public String getSuspension() {
+        return this.suspension;
     }
 
     public void setSuspension(String suspensionType) {
@@ -24,26 +24,53 @@ public class MountainBike extends Bicycle {
 
     public void printDescription() {
         super.printDescription();
-        System.out.println("The " + "MountainBike has a" +
-            getSuspension() + " suspension.");
+        System.out.println("The " + "MountainBike has a " +
+                getSuspension() + " suspension.");
     }
 
-    // Creates and returns a copy of this object.
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone(); // return nearest element
-    }
+    public boolean equals(Object obj) {
+        MountainBike b = (MountainBike) obj;
 
-    // Indicates whether some other object is "equal to" this one.
-    public boolean equals(Object obj) { // Startbike
-        if (obj instanceof MountainBike) {
-            MountainBike result = (MountainBike) obj;
-            return result.speed == this.speed;
-        } else
+        if (this.speed != (b.speed))
+            ;
+        if (this.cadence != b.cadence)
             return false;
+        if (!(this.suspension.equals(b.getSuspension())))
+            return false;
+        if (this.gear != b.gear)
+            return false;
+
+        return true;
     }
 
-    // Returns a hash code value for the object.@overide
-    public int hashCode() {
-        return speed*10; //hashcode
+    void printClassName(Object obj) {
+        System.out.println("The Bicycle Class is " + obj.getClass().getSimpleName());
+
     }
-} 
+
+    void printMethods(Object obj) {
+        System.out.println("The methods of the Bicycle  are" + obj.getClass().getMethods());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 4;
+        result = 32 * result + cadence;
+        result = 32 * result + gear;
+        result = 32 * result + speed;
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        String output = ("The cadence:" + this.cadence + ", The speed:" + this.speed + ", The gear:" + this.gear
+                + ", The suspension: " + this.suspension);
+        return output;
+    }
+
+    public Object clone() {
+        MountainBike mb = (MountainBike) super.clone();
+        mb.suspension = this.suspension;
+        return mb;
+    }
+}

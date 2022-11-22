@@ -1,4 +1,4 @@
-package Frankfurt.Exercise.Week4.Question_4;
+package Frankfurt.Exercise.Week4.Question_4_and_5;
 
 import java.io.*;
 import java.util.*;
@@ -10,10 +10,10 @@ public class Verification {
 
         // READ FILE
         File file1 = new File(
-                "/Users/namng/Desktop/Java/Frankfurt/Exercise/Week4/Question_4/text_in.txt");
+                "/Users/namng/Desktop/Java/Frankfurt/Exercise/Week4/Question_4_and_5/text_in.txt");
 
         File file2 = new File(
-                "/Users/namng/Desktop/Java/Frankfurt/Exercise/Week4/Question_4/text_out.txt");
+                "/Users/namng/Desktop/Java/Frankfurt/Exercise/Week4/Question_4_and_5/text_out.txt");
 
         Scanner sc1 = new Scanner(file1);
         Scanner sc2 = new Scanner(file2);

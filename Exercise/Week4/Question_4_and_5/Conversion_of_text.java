@@ -1,4 +1,4 @@
-package Frankfurt.Exercise.Week4.Question_4;
+package Frankfurt.Exercise.Week4.Question_4_and_5;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -30,7 +30,7 @@ public class Conversion_of_text {
 
         // File path is passed as parameter
         File file = new File(
-                "/Users/namng/Desktop/Java/Frankfurt/Exercise/Week4/Question_4/text_in.txt");
+                "/Users/namng/Desktop/Java/Frankfurt/Exercise/Week4/Question_4_and_5/text_in.txt");
 
         // Note: Double backquote is to avoid compiler
         // interpret words
@@ -44,7 +44,7 @@ public class Conversion_of_text {
 
         // Defining the file name of the file
         Path fileName = Path.of(
-                "/Users/namng/Desktop/Java/Frankfurt/Exercise/Week4/Question_4/text_out.txt");
+                "/Users/namng/Desktop/Java/Frankfurt/Exercise/Week4/Question_4_and_5/text_out.txt");
 
         // Read and write
         while (sc.hasNextLine()) {
